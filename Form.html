@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Form</title>
+</head>
+<body>
+<form>
+    <fieldset>
+        <legend>Simple Form</legend>
+        Name:
+        <input type="text" placeholder="Enter name"
+               pattern="[A-Za-z ]{3,}">
+        <br><br>
+        Age:
+        <input type="text" placeholder="Enter age" pattern="[0-9]{1,3}"><br><br>
+        Date of Birth:
+        <input type="date">
+        <br><br>
+        Website:
+        <input type="url" placeholder="https://example.com">
+        <br><br>
+        Gmail:
+        <input type="email" placeholder="xxxx@gmail.com"><br><br>
+        Photo:
+        <input type="file" accept="image/*">
+        <br><br>
+        Gender:
+        <input type="radio" name="gender"> Male
+        <input type="radio" name="gender"> Female
+        <br><br>
+        Skills:
+        <input type="checkbox"> HTML
+        <input type="checkbox"> CSS
+        <br><br>
+        Course:
+        <select>
+            <option>HTML</option>
+            <option>CSS</option>
+            <option>Python</option>
+            <option>C</option>
+            <option>JAVA</option>
+        </select>
+        <br><br>
+        Rating:
+        <input type="range" min="1" max="10">
+        <br><br>
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+    </fieldset>
+</form>
+</body>
+</html>
