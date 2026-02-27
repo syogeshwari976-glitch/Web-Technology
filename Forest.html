@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Interactive Forest</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #1b5e20;
+    }
+    h2 {
+        color: white;
+        text-align: center;
+        margin: 10px 0;
+    }
+    #forest {
+        width: 100%;
+        height: 70vh;
+        background: linear-gradient(#87ceeb 40%, #2e7d32 40%);
+        position: relative;
+        overflow: hidden;
+        cursor: copy;
+    }
+    .tree {
+        position: absolute;
+        width: 60px;
+        user-select: none;
+        cursor: move;
+    }
+    .grasshopper {
+        position: absolute;
+        width: 40px;
+    }
+    #controls {
+        background: #0f3d1e;
+        padding: 10px;
+        color: white;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        justify-content: center;
+    }
+    #thumbnails img {
+        width: 50px;
+        cursor: grab;
+        border: 2px solid white;
+        border-radius: 5px;
+    }
+</style>
+</head>
+<body>
+<h2>Interactive Forest </h2>
+<div id="forest"></div>
+<div id="controls">
+    <label>
+        Tree Size:
+        <input type="range" id="sizeSlider" min="30" max="120" value="60">
+    </label>
+    <button onclick="addRandomTree()">Add Random Tree</button>
+    <div id="thumbnails">
+        <span>Drag Image:</span>
+        <img src="https://i.imgur.com/O6KX0kT.png" draggable="true" id="treeThumb">
+        <img src="https://i.imgur.com/6QKxY4B.png" draggable="true" id="grassThumb">
+    </div>
+</div>
+<audio id="treeSound">
+    <source src="https://www.soundjay.com/nature/sounds/forest-birds-01.mp3" type="audio/mpeg">
+</audio>
+<script>
+const forest = document.getElementById("forest");
+const slider = document.getElementById("sizeSlider");
+const sound = document.getElementById("treeSound");
+let draggedType = "";
+forest.addEventListener("click", (e) => {
+    addTree(e.offsetX, e.offsetY);
+});
+
+function addTree(x, y) {
+    const tree = document.createElement("img");
+    tree.src = "tree.png";
+    tree.className = "tree";
+    tree.style.left = x + "px";
+    tree.style.top = y + "px";
+    tree.style.width = slider.value + "px";
+    tree.draggable = true;
+
+    forest.appendChild(tree);
+    sound.currentTime = 0;
+    sound.play();
+}
+function addRandomTree() {
+    const x = Math.random() * (forest.clientWidth - 100);
+    const y = Math.random() * (forest.clientHeight - 100);
+    addTree(x, y);
+}
+document.getElementById("treeThumb").addEventListener("dragstart", () => {
+    draggedType = "tree";
+});
+document.getElementById("grassThumb").addEventListener("dragstart", () => {
+    draggedType = "grasshopper";
+});
+forest.addEventListener("dragover", (e) => e.preventDefault());
+
+forest.addEventListener("drop", (e) => {
+    e.preventDefault();
+
+    if (draggedType === "tree") {
+        addTree(e.offsetX, e.offsetY);
+    }
+
+    if (draggedType === "grasshopper") {
+        const g = document.createElement("img");
+        g.src = "grasshopper.png";
+        g.className = "grasshopper";
+        g.style.left = e.offsetX + "px";
+        g.style.top = e.offsetY + "px";
+        forest.appendChild(g);
+    }
+});
+</script>
+
+</body>
+</html>
