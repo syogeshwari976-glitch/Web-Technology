@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Slow Bubble Click Game</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: #0f172a;
+            font-family: Arial, sans-serif;
+        }
+        #score {
+            color: white;
+            font-size: 18px;
+            padding: 10px;
+        }
+        #gameObject {
+            width: 100px;
+            height: 100px;
+            background: #38bdf8;
+            border-radius: 50%;
+            position: absolute;
+            cursor: pointer;
+            transition: left 1.5s linear, top 1.5s linear;
+        }
+    </style>
+</head>
+<body>
+<div id="score">Clicks: 0</div>
+<div id="gameObject"></div>
+<script>
+    const bubble = document.getElementById("gameObject");
+    const scoreText = document.getElementById("score");
+    let size = 100;
+    let clicks = 0;
+    function moveBubble() {
+        const maxX = window.innerWidth - size;
+        const maxY = window.innerHeight - size;
+        const x = Math.random() * maxX;
+        const y = Math.random() * maxY;
+        bubble.style.left = x + "px";
+        bubble.style.top = y + "px";
+    }
+    bubble.addEventListener("click", () => {
+        clicks++;
+        size -= 10;
+        scoreText.textContent = "Clicks: " + clicks;
+        if (size <= 20) {
+            alert("Game Over! Total clicks: " + clicks);
+            size = 100;
+            clicks = 0;
+        }
+        bubble.style.width = size + "px";
+        bubble.style.height = size + "px";
+        moveBubble();
+    });
+    setInterval(moveBubble, 2500);
+    moveBubble();
+</script>
+</body>
+</html>
