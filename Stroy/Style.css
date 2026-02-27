@@ -1,0 +1,120 @@
+body {
+    background-color: #f0f0f0;
+    background-image: linear-gradient(45deg, #f0f0f0 25%, transparent 25%, transparent 75%, #f0f0f0 75%, #f0f0f0),
+                      linear-gradient(45deg, #f0f0f0 25%, transparent 25%, transparent 75%, #f0f0f0 75%, #f0f0f0);
+    background-size: 60px 60px;
+    background-position: 0 0, 30px 30px;
+    font-family: 'Roboto', sans-serif; /* Default font family */
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.container {
+    width: 80%;
+    max-width: 960px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border: 1px solid #ccc;
+}
+.sticky-note {
+    background-color: #fffacd;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    transform: rotate(2deg);
+    font-family: 'Handlee', cursive;
+    position: relative;
+    left: -20px;
+    top: -5px;
+    display: inline-block;
+    text-align: left;
+    max-width: 400px;
+}
+.sticky-note h2 {
+    font-family: 'Pacifico', cursive;
+    color: #333;
+    margin-top: 0;
+}
+.sticky-note p {
+    font-size: 1.1em;
+    line-height: 1.4;
+}
+.king-image {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url('https://img.icons8.com/emoji/48/king-emoji.png');
+    background-size: cover;
+    vertical-align: middle;
+    margin: 0 2px;
+    border-radius:50%;
+    boder:1px solid #333;
+}
+.custom-list {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: inline-block;
+    text-align: left;
+}
+.custom-list li {
+    background-color: #e9ecef;
+    margin: 5px 0;
+    padding: 10px;
+    border-left: 5px solid #007bff;
+    font-family: 'Lato', sans-serif;
+}
+.image-list {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: inline-block;
+    text-align: left;
+}
+.image-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-family: 'Open Sans', sans-serif;
+}
+.image-list img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    margin-right: 10px;
+    border: 1px solid #007bff;
+}
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    font-family: 'Montserrat', sans-serif;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    overflow: hidden;
+}
+th, td {
+    border: 1px solid #dee2e6;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #007bff;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
